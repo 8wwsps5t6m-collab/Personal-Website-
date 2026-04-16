@@ -6,42 +6,54 @@ import { personalInfo } from '@/data/content';
 
 const navItems = [
   { label: 'About', href: '#about' },
+  { label: 'Industry', href: '#fashion-background' },
   { label: 'Experience', href: '#experience' },
   { label: 'Education', href: '#education' },
-  { label: 'Interests', href: '#interests' },
+  { label: 'Background', href: '#background' },
   { label: 'Connect', href: '#connect' },
 ];
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNavigation, setShowNavigation] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 8);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const completedIntro = sessionStorage.getItem('intro-complete') === 'true';
+    if (completedIntro) {
+      setShowNavigation(true);
+      return;
+    }
+
+    const handleIntroComplete = () => {
+      sessionStorage.setItem('intro-complete', 'true');
+      setShowNavigation(true);
+    };
+
+    window.addEventListener('intro-complete', handleIntroComplete);
+    return () => window.removeEventListener('intro-complete', handleIntroComplete);
   }, []);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'border-b border-black bg-background'
-          : 'bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 transition-opacity duration-500 ${
+        showNavigation ? 'opacity-100' : 'pointer-events-none opacity-0'
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <a href="#" className="text-sm tracking-tight text-primary">
+      <div className="mx-auto flex max-w-6xl items-start justify-between px-6 py-4">
+        <a href="#" className="font-headings text-xs uppercase tracking-[0.2em] text-primary">
           {personalInfo.name}
         </a>
 
-        <nav className="hidden items-center gap-6 text-xs tracking-wide text-secondary md:flex">
+        <nav className="hidden items-center gap-6 font-headings text-[10px] uppercase tracking-[0.18em] text-primary md:flex">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="transition-colors hover:text-primary"
-            >
+            <a key={item.href} href={item.href} className="hover-underline">
               {item.label}
             </a>
           ))}
@@ -52,19 +64,31 @@ export default function Navigation() {
           className="text-primary md:hidden"
           onClick={() => setIsMenuOpen((open) => !open)}
           aria-label="Toggle mobile navigation"
+          data-interactive="true"
         >
-          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {isMenuOpen && (
-        <div className="border-b border-black bg-background px-6 py-4 md:hidden">
-          <nav className="flex flex-col gap-3 text-sm text-secondary">
+        <div className="fixed inset-0 bg-secondaryBackground px-6 py-8 md:hidden">
+          <div className="mb-12 flex justify-end">
+            <button
+              type="button"
+              className="text-onDark"
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close mobile navigation"
+              data-interactive="true"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          <nav className="flex flex-col gap-7 font-display text-4xl text-onDark">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="transition-colors hover:text-primary"
+                className="hover-underline w-fit"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

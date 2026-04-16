@@ -9,14 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
+        background: 'var(--bg-primary)',
+        surface: 'var(--bg-card)',
+        secondaryBackground: 'var(--bg-secondary)',
         primary: 'var(--text-primary)',
         secondary: 'var(--text-secondary)',
+        onDark: 'var(--text-on-dark)',
+        accent: 'var(--accent)',
+        accentHover: 'var(--accent-hover)',
         divider: 'var(--border)',
+        dividerDark: 'var(--border-dark)',
       },
       fontFamily: {
-        sans: ['var(--font-archivo)', 'sans-serif'],
-        display: ['var(--font-archivo-black)', 'sans-serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
+        display: ['var(--font-display)', 'serif'],
+        headings: ['var(--font-headings)', 'sans-serif'],
+        accent: ['var(--font-display)', 'serif'],
       },
     },
   },

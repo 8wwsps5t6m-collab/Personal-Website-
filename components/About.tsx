@@ -1,29 +1,62 @@
+'use client';
+
+import { Plus } from 'lucide-react';
 import { focusAreas, personalInfo } from '@/data/content';
 import FadeIn from './FadeIn';
+import SectionLabel from './SectionLabel';
+import { useState } from 'react';
 
 export default function About() {
+  const [openCard, setOpenCard] = useState<string | null>(focusAreas[0]?.label ?? null);
+
   return (
-    <section id="about" className="mx-auto w-full max-w-6xl px-6 py-32">
+    <section id="about" className="dark-band py-24">
+      <div className="mx-auto w-full max-w-6xl px-6">
+      <SectionLabel number="01" title="ABOUT" />
       <FadeIn>
-        <h2 className="font-display text-4xl uppercase tracking-tight md:text-6xl">
-          About
-        </h2>
-        <div className="mt-10 max-w-3xl space-y-6 text-lg leading-relaxed text-secondary">
+        <div className="mt-3 max-w-4xl border border-accent p-6 text-lg leading-relaxed text-onDark md:text-xl">
           {personalInfo.bioParts.map((part) => (
-            <p key={part}>{part}</p>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-wrap gap-3">
-          {focusAreas.map((area) => (
-            <span
-              key={area}
-              className="border border-black px-3 py-2 text-xs uppercase tracking-wider text-primary"
-            >
-              {area}
-            </span>
+            <p key={part} className="mb-4 last:mb-0">
+              {part}
+            </p>
           ))}
         </div>
       </FadeIn>
+
+      <div className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        {focusAreas.map((area, index) => {
+          const isOpen = openCard === area.label;
+
+          return (
+            <FadeIn key={area.label} delayMs={index * 80}>
+              <button
+                type="button"
+                onClick={() => setOpenCard((current) => (current === area.label ? null : area.label))}
+                className="w-full border border-accent p-4 text-left text-onDark transition-colors duration-300 ease-out hover:bg-accent hover:text-primary"
+                data-interactive="true"
+              >
+                <div className="flex items-center justify-between">
+                  <p className="font-headings text-xs uppercase tracking-[0.18em]">{area.label}</p>
+                  <Plus
+                    size={14}
+                    className={`transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}
+                  />
+                </div>
+                <div
+                  className={`grid transition-all duration-300 ease-out ${
+                    isOpen ? 'mt-3 grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="mb-2 text-sm normal-case tracking-normal">{area.description}</p>
+                  </div>
+                </div>
+              </button>
+            </FadeIn>
+          );
+        })}
+      </div>
+      </div>
     </section>
   );
 }

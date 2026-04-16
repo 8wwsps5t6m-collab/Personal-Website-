@@ -6,12 +6,14 @@ interface FadeInProps {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
+  offsetX?: number;
 }
 
 export default function FadeIn({
   children,
   className = '',
   delayMs = 0,
+  offsetX = 0,
 }: FadeInProps) {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement | null>(null);
@@ -38,7 +40,12 @@ export default function FadeIn({
     <div
       ref={elementRef}
       className={`transition-all duration-700 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'} ${className}`}
-      style={{ transitionDelay: `${delayMs}ms` }}
+      style={{
+        transitionDelay: `${delayMs}ms`,
+        transform: isVisible
+          ? 'translate3d(0, 0, 0)'
+          : `translate3d(${offsetX}px, 20px, 0)`,
+      }}
     >
       {children}
     </div>

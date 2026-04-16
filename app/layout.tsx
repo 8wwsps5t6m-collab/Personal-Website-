@@ -1,17 +1,29 @@
 import type { Metadata } from 'next';
-import { Archivo, Archivo_Black } from 'next/font/google';
+import {
+  DM_Serif_Display,
+  Outfit,
+  Space_Grotesk,
+} from 'next/font/google';
+import CustomCursor from '@/components/CustomCursor';
 import './globals.css';
 
-const archivoBlack = Archivo_Black({
+const dmSerifDisplay = DM_Serif_Display({
   subsets: ['latin'],
   weight: ['400'],
-  variable: '--font-archivo-black',
+  style: ['normal', 'italic'],
+  variable: '--font-display',
 });
 
-const archivo = Archivo({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-archivo',
+  weight: ['500', '700'],
+  variable: '--font-headings',
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-body',
 });
 
 export const metadata: Metadata = {
@@ -28,8 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body
-        className={`${archivo.variable} ${archivoBlack.variable} min-h-full bg-background text-primary`}
+        className={`${dmSerifDisplay.variable} ${spaceGrotesk.variable} ${outfit.variable} min-h-full bg-background text-primary`}
       >
+        <CustomCursor />
         {children}
       </body>
     </html>

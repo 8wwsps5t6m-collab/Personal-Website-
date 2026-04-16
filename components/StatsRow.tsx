@@ -1,0 +1,29 @@
+import FadeIn from './FadeIn';
+import NumberTicker from './NumberTicker';
+
+const stats = [
+  { value: 70000, suffix: '+', label: 'audience across platforms' },
+  { value: 6, suffix: '+', label: 'brand campaigns executed' },
+  { value: 2023, suffix: '', label: 'creating since' },
+];
+
+export default function StatsRow() {
+  return (
+    <section className="dark-band py-14">
+      <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 md:grid-cols-3">
+        {stats.map((stat, index) => (
+          <FadeIn key={stat.label} delayMs={index * 100}>
+            <article className="border border-dividerDark p-5">
+              <p className="font-display text-5xl italic text-onDark md:text-6xl">
+                <NumberTicker value={stat.value} suffix={stat.suffix} />
+              </p>
+              <p className="mt-3 font-headings text-xs uppercase tracking-[0.24em] text-secondary">
+                {stat.label}
+              </p>
+            </article>
+          </FadeIn>
+        ))}
+      </div>
+    </section>
+  );
+}

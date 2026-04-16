@@ -1,20 +1,23 @@
 import { education } from '@/data/content';
 import FadeIn from './FadeIn';
+import SectionLabel from './SectionLabel';
 
 export default function Education() {
   return (
     <section id="education" className="mx-auto w-full max-w-6xl px-6 py-24">
-      <FadeIn>
-        <h2 className="font-display text-4xl md:text-5xl">Education</h2>
-      </FadeIn>
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <SectionLabel number="04" title="EDUCATION" />
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
         {education.map((item, index) => (
           <FadeIn key={item.school} delayMs={index * 90}>
-            <article className="h-full rounded-2xl border border-divider bg-white/60 p-6">
-              <h3 className="font-display text-3xl">{item.school}</h3>
-              <p className="mt-2 text-lg text-primary">{item.degree}</p>
-              <p className="mt-3 text-sm text-secondary">{item.date}</p>
-              <p className="mt-2 text-secondary">{item.detail}</p>
+            <article className="warm-card h-full p-6">
+              <h3 className="font-headings text-sm uppercase tracking-[0.18em] text-primary">
+                {item.school}
+              </h3>
+              <p className="mt-2 text-base text-primary">{item.degree}</p>
+              <p className="mt-3 font-headings text-xs uppercase tracking-[0.2em] text-secondary">
+                {item.date}
+              </p>
+              <p className="mt-3 font-display text-lg italic text-secondary">{item.detail}</p>
             </article>
           </FadeIn>
         ))}
