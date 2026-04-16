@@ -11,7 +11,7 @@ export default function Hero() {
   const [showHero, setShowHero] = useState(false);
 
   useEffect(() => {
-    const seenIntro = sessionStorage.getItem('intro-seen') === 'true';
+    const seenIntro = sessionStorage.getItem('intro-seen-overlay-v1') === 'true';
     const completedIntro = sessionStorage.getItem('intro-complete') === 'true';
 
     if (seenIntro && completedIntro) {

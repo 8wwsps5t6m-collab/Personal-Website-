@@ -5,7 +5,7 @@ import SectionLabel from './SectionLabel';
 export default function Education() {
   return (
     <section id="education" className="mx-auto w-full max-w-6xl px-6 py-24">
-      <SectionLabel number="04" title="EDUCATION" />
+      <SectionLabel number="05" title="EDUCATION" />
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         {education.map((item, index) => (
           <FadeIn key={item.school} delayMs={index * 90}>
@@ -22,6 +22,11 @@ export default function Education() {
           </FadeIn>
         ))}
       </div>
+      <FadeIn delayMs={260}>
+        <p className="mt-5 text-sm text-secondary">
+          Member — Sigma Phi Epsilon, SC Alpha Chapter · University of South Carolina
+        </p>
+      </FadeIn>
     </section>
   );
 }

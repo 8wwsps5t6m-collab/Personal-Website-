@@ -94,45 +94,28 @@ export const focusAreas: FocusAreaItem[] = [
 
 export const experience: ExperienceItem[] = [
   {
-    role: 'Content Creator',
+    role: 'Content Creator & Brand Partner',
     org: '@hudson.cryder · TikTok & Instagram',
     date: '2023 — Present',
     description:
-      'Building and managing a content brand across platforms — developing audience growth strategy, producing short-form video, and translating engagement data into content decisions.',
+      'Building and managing a content brand for an audience of 70,000+ across platforms. Developing audience growth strategy, producing short-form video, and executing paid and gifted brand campaigns. Partners include Based Body Works, Anchor Charging, Scuffers, W by Jake Paul, Eme Studios, and Aelfric Eden.',
     type: 'current',
-  },
-  {
-    role: 'Brand Partner',
-    org: 'Based Body Works · Paid Campaign',
-    date: '2025',
-    description:
-      'Developed sponsored content strategy for a wellness brand, integrating product messaging into organic content formats.',
-    type: 'partnership',
-  },
-  {
-    role: 'Brand Partner',
-    org: 'Anchor Charging · Paid Campaign',
-    date: '2025',
-    description:
-      'Executed a paid content campaign positioning a tech product within lifestyle content — bridging product utility and audience relevance.',
-    type: 'partnership',
-  },
-  {
-    role: 'Gifted Collaborations',
-    org: 'Scuffers · W by Jake Paul · Eme Studios · Aelfric Eden',
-    date: '2024 — 2025',
-    description:
-      'Selected by streetwear brands for product-based partnerships driven by content quality and demographic alignment.',
-    type: 'partnership',
   },
 ];
 
 export const education: EducationItem[] = [
   {
     school: 'University of South Carolina',
-    degree: 'B.S. Marketing',
+    degree: 'B.S. Marketing · Darla Moore School of Business',
     date: '2025 — May 2029',
-    detail: 'Darla Moore School of Business',
+    detail: 'Columbia, South Carolina',
+  },
+  {
+    school: 'Artificial Intelligence Literacy, Certificate',
+    degree: 'University of South Carolina',
+    date: '2026',
+    detail:
+      'AI fundamentals, applications, and strategic implementation in marketing and business.',
   },
   {
     school: 'Montclair High School',
@@ -142,15 +125,7 @@ export const education: EducationItem[] = [
   },
 ];
 
-export const certifications: CertificationItem[] = [
-  {
-    title: 'Artificial Intelligence Literacy, Certificate',
-    issuer: 'University of South Carolina',
-    date: '2026',
-    description:
-      'Formal certification in AI fundamentals, applications, and strategic implementation — focused on how AI tools reshape decision-making in marketing and business.',
-  },
-];
+export const certifications: CertificationItem[] = [];
 
 export const fashionBackground = {
   headline: 'Raised in the Industry',
@@ -159,37 +134,9 @@ export const fashionBackground = {
   brands: ['J. Crew', 'Gap', 'Vineyard Vines', 'Burton'],
 };
 
-export const involvement: InvolvementItem[] = [
-  {
-    role: 'Member',
-    org: 'Sigma Phi Epsilon · SC Alpha Chapter',
-    date: '2025 — Present',
-    description:
-      'Active member of the SC Alpha chapter at the University of South Carolina.',
-  },
-];
+export const involvement: InvolvementItem[] = [];
 
-export const workHistory: WorkHistoryItem[] = [
-  {
-    role: 'Beach Club Staff',
-    org: 'Montclair, NJ',
-    date: '2018 — 2024',
-    description:
-      'Six years across multiple roles starting at age 12. Customer service, operations, and learning what it means to show up.',
-  },
-  {
-    role: 'Delivery Driver',
-    org: 'Local Restaurant · Montclair, NJ',
-    date: '2024',
-    description: 'Logistics and time management under pressure.',
-  },
-  {
-    role: 'Busser',
-    org: 'Restaurant · Montclair, NJ',
-    date: '2023',
-    description: 'Front-of-house operations and customer-facing work.',
-  },
-];
+export const workHistory: WorkHistoryItem[] = [];
 
 export const interests: InterestItem[] = [
   // Intentionally left as an empty export to preserve data architecture compatibility.

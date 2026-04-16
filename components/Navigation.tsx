@@ -5,12 +5,11 @@ import { useEffect, useState } from 'react';
 import { personalInfo } from '@/data/content';
 
 const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Industry', href: '#fashion-background' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Education', href: '#education' },
-  { label: 'Background', href: '#background' },
-  { label: 'Connect', href: '#connect' },
+  { label: 'ABOUT', href: '#about' },
+  { label: 'INDUSTRY', href: '#fashion-background' },
+  { label: 'EXPERIENCE', href: '#experience' },
+  { label: 'EDUCATION', href: '#education' },
+  { label: 'CONNECT', href: '#connect' },
 ];
 
 export default function Navigation() {
