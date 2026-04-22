@@ -33,7 +33,7 @@ export default function Hero() {
     visible: (delayIndex: number) => ({
       y: 0,
       opacity: 1,
-      transition: { duration: 0.55, delay: delayIndex * 0.1, ease: 'easeOut' },
+      transition: { duration: 0.55, delay: delayIndex * 0.1, ease: 'easeOut' as const },
     }),
   };
 

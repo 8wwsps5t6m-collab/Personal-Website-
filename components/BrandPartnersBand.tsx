@@ -24,7 +24,7 @@ export default function BrandPartnersBand() {
         <motion.div
           className="flex w-max items-center gap-12"
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 28, ease: 'linear', repeat: Infinity }}
+          transition={{ duration: 28, ease: 'linear' as const, repeat: Infinity }}
         >
           {marqueeContent.map((brand, index) => (
             <span
