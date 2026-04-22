@@ -7,7 +7,7 @@ export default function Connect() {
   return (
     <footer id="connect" className="dark-band py-8 md:py-10">
       <div className="mx-auto w-full max-w-6xl px-6 text-center">
-        <SectionLabel number="06" title="CONNECT" />
+        <SectionLabel number="05" title="CONNECT" />
         <FadeIn>
           <h2 className="font-display text-4xl text-onDark md:text-5xl">Let&apos;s Connect</h2>
           <a

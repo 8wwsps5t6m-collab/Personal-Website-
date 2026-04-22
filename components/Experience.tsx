@@ -8,7 +8,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="mx-auto w-full max-w-6xl px-6 py-14 md:py-16">
-      <SectionLabel number="04" title="EXPERIENCE" />
+      <SectionLabel number="03" title="EXPERIENCE" />
       <div className="mt-4">
         {featuredExperience && (
           <FadeIn delayMs={80}>

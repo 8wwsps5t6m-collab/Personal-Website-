@@ -6,25 +6,33 @@ interface NumberTickerProps {
   value: number;
   suffix?: string;
   durationMs?: number;
+  useGrouping?: boolean;
 }
 
 export default function NumberTicker({
   value,
   suffix = '',
   durationMs = 1400,
+  useGrouping = true,
 }: NumberTickerProps) {
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState(value);
   const elementRef = useRef<HTMLSpanElement | null>(null);
   const startedRef = useRef(false);
 
   useEffect(() => {
     const node = elementRef.current;
     if (!node) return;
+    setDisplayValue(value);
+
+    if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') {
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || startedRef.current) return;
         startedRef.current = true;
+        setDisplayValue(0);
 
         let animationFrame = 0;
         const start = performance.now();
@@ -53,7 +61,7 @@ export default function NumberTicker({
 
   return (
     <span ref={elementRef}>
-      {displayValue.toLocaleString()}
+      {displayValue.toLocaleString(undefined, { useGrouping })}
       {suffix}
     </span>
   );
