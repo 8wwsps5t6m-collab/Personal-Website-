@@ -9,8 +9,8 @@ const stats = [
 
 export default function StatsRow() {
   return (
-    <section className="dark-band py-14">
-      <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 md:grid-cols-3">
+    <section className="dark-band py-10 md:py-12">
+      <div className="mx-auto grid w-full max-w-6xl gap-4 px-6 md:grid-cols-3 md:gap-5">
         {stats.map((stat, index) => (
           <FadeIn key={stat.label} delayMs={index * 100}>
             <article className="border border-dividerDark p-5">

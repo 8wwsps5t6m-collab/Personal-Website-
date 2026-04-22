@@ -5,19 +5,19 @@ import SectionLabel from './SectionLabel';
 
 export default function Connect() {
   return (
-    <footer id="connect" className="dark-band py-24">
-      <div className="mx-auto w-full max-w-6xl px-6">
+    <footer id="connect" className="dark-band py-8 md:py-10">
+      <div className="mx-auto w-full max-w-6xl px-6 text-center">
         <SectionLabel number="06" title="CONNECT" />
         <FadeIn>
-          <h2 className="font-display text-5xl text-onDark md:text-6xl">Let&apos;s Connect</h2>
+          <h2 className="font-display text-4xl text-onDark md:text-5xl">Let&apos;s Connect</h2>
           <a
             href={`mailto:${personalInfo.email}`}
-            className="hover-underline mt-6 inline-block font-display text-3xl text-onDark md:text-4xl"
+            className="hover-underline mt-4 inline-block font-display text-2xl text-onDark md:text-3xl"
             data-interactive="true"
           >
             {personalInfo.email}
           </a>
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 text-onDark">
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-onDark">
             <MagneticLink href={personalInfo.socials.tiktok} className="text-onDark">
               TIKTOK
             </MagneticLink>
@@ -31,7 +31,7 @@ export default function Connect() {
               EMAIL
             </MagneticLink>
           </div>
-          <p className="mt-10 text-sm text-secondary">© 2026 Hudson Cryder</p>
+          <p className="mt-5 text-sm text-secondary">© 2026 Hudson Cryder</p>
         </FadeIn>
       </div>
     </footer>

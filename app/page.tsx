@@ -16,15 +16,18 @@ export default function Home() {
         <IntroSequence />
         <Hero />
         <div className="section-divider mx-auto max-w-6xl" />
+        <div className="transition-cream-to-dark" aria-hidden="true" />
         <About />
         <FashionBackground />
         <StatsRow />
+        <div className="transition-dark-to-cream" aria-hidden="true" />
         <div className="section-divider mx-auto max-w-6xl" />
         <Experience />
         <div className="section-divider mx-auto max-w-6xl" />
         <Education />
         <div className="section-divider mx-auto max-w-6xl" />
       </main>
+      <div className="transition-cream-to-dark" aria-hidden="true" />
       <Connect />
     </div>
   );

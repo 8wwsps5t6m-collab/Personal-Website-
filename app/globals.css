@@ -38,7 +38,7 @@ body::after {
   height: 100%;
   pointer-events: none;
   z-index: 90;
-  opacity: 0.04;
+  opacity: 0.018;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
@@ -52,19 +52,9 @@ body::after {
 }
 
 .section-divider {
-  position: relative;
+  width: 60%;
+  margin: 0 auto;
   border-top: 1px solid var(--border);
-}
-
-.section-divider::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: -4px;
-  width: 7px;
-  height: 7px;
-  background: var(--accent);
-  transform: translateX(-50%) rotate(45deg);
 }
 
 .hover-underline {
@@ -135,6 +125,16 @@ body::after {
   color: var(--text-on-dark);
 }
 
+.transition-cream-to-dark {
+  height: 40px;
+  background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.transition-dark-to-cream {
+  height: 40px;
+  background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
 .intro-sequence {
   background: var(--bg-secondary);
 }
@@ -156,30 +156,6 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-.custom-cursor {
-  pointer-events: none;
-  position: fixed;
-  left: var(--mouse-x);
-  top: var(--mouse-y);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--accent);
-  transform: translate(-50%, -50%);
-  z-index: 120;
-  mix-blend-mode: difference;
-  transition:
-    width 0.3s ease-out,
-    height 0.3s ease-out,
-    box-shadow 0.3s ease-out;
-}
-
-.custom-cursor--active {
-  width: 40px;
-  height: 40px;
-  box-shadow: 0 0 20px rgba(184, 160, 136, 0.3);
-}
-
 @keyframes letter-up {
   to {
     opacity: 1;
@@ -196,18 +172,9 @@ body::after {
   }
 }
 
-@media (pointer: fine) {
-  * {
-    cursor: none !important;
-  }
-}
-
 @media (pointer: coarse) {
-  .custom-cursor {
-    display: none;
-  }
-
-  * {
-    cursor: auto !important;
+  .transition-cream-to-dark,
+  .transition-dark-to-cream {
+    height: 28px;
   }
 }

@@ -4,7 +4,6 @@ import {
   Outfit,
   Space_Grotesk,
 } from 'next/font/google';
-import CustomCursor from '@/components/CustomCursor';
 import './globals.css';
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -42,7 +41,6 @@ export default function RootLayout({
       <body
         className={`${dmSerifDisplay.variable} ${spaceGrotesk.variable} ${outfit.variable} min-h-full bg-background text-primary`}
       >
-        <CustomCursor />
         {children}
       </body>
     </html>

@@ -38,30 +38,47 @@ export default function Hero() {
   };
 
   return (
-    <section id="top" className="grain-hero relative mx-auto min-h-screen w-full max-w-6xl px-6 pb-12 pt-28">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-20 top-20 h-80 w-80 rounded-full border border-accent/40" />
-        <div className="absolute -right-16 bottom-16 h-[22rem] w-[22rem] rounded-full border border-accent/45" />
-      </div>
+    <section id="top" className="grain-hero relative mx-auto flex h-screen w-full max-w-7xl items-center px-6 pt-16">
+      <div className="relative z-10 grid w-full items-center gap-8 md:grid-cols-[1fr_auto] md:gap-12">
+        <div>
+          <motion.h1
+            className="font-display text-4xl leading-[0.9] tracking-tight text-primary md:text-6xl lg:text-7xl"
+            style={{ textShadow: '0 2px 10px rgba(26,23,20,0.09)' }}
+            initial="hidden"
+            animate={showHero ? 'visible' : 'hidden'}
+            custom={0}
+            variants={heroItem}
+          >
+            {animatedName.map((letter, index) => (
+              <span key={`${letter}-${index}`}>
+                {letter === ' ' ? '\u00A0' : letter}
+              </span>
+            ))}
+          </motion.h1>
 
-      <div className="relative z-10 flex min-h-[78vh] flex-col items-start">
-        <motion.h1
-          className="font-display text-4xl leading-[0.9] tracking-tight text-primary md:text-6xl lg:text-7xl"
-          style={{ textShadow: '0 2px 10px rgba(26,23,20,0.09)' }}
-          initial="hidden"
-          animate={showHero ? 'visible' : 'hidden'}
-          custom={0}
-          variants={heroItem}
-        >
-          {animatedName.map((letter, index) => (
-            <span key={`${letter}-${index}`}>
-              {letter === ' ' ? '\u00A0' : letter}
-            </span>
-          ))}
-        </motion.h1>
+          <motion.div
+            initial="hidden"
+            animate={showHero ? 'visible' : 'hidden'}
+            custom={2}
+            variants={heroItem}
+          >
+            <p className="mt-4 max-w-xl font-headings text-xs uppercase tracking-[0.2em] text-secondary md:text-sm">
+              Marketing, content, and strategy
+            </p>
+            <p className="mt-3 font-headings text-[10px] uppercase tracking-[0.24em] text-secondary">
+              {personalInfo.location}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <MagneticLink href={personalInfo.socials.tiktok}>TIKTOK</MagneticLink>
+              <MagneticLink href={personalInfo.socials.instagram}>INSTAGRAM</MagneticLink>
+              <MagneticLink href={personalInfo.socials.linkedin}>LINKEDIN</MagneticLink>
+              <MagneticLink href={`mailto:${personalInfo.email}`}>EMAIL</MagneticLink>
+            </div>
+          </motion.div>
+        </div>
 
         <motion.div
-          className="mt-1"
+          className="mx-auto md:mx-0"
           initial="hidden"
           animate={showHero ? 'visible' : 'hidden'}
           custom={1}
@@ -70,32 +87,11 @@ export default function Hero() {
           <Image
             src="/hudson-headshot.png"
             alt="Hudson Cryder in Florence"
-            width={250}
-            height={250}
-            className="h-[180px] w-[180px] rounded-full border-[3px] border-accent object-cover md:h-[250px] md:w-[250px]"
+            width={300}
+            height={300}
+            className="h-[200px] w-[200px] rounded-full border-[3px] border-accent object-cover md:h-[300px] md:w-[300px]"
             priority
           />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={showHero ? 'visible' : 'hidden'}
-          custom={2}
-          variants={heroItem}
-        >
-          <p className="mt-6 max-w-xl font-headings text-xs uppercase tracking-[0.2em] text-secondary md:text-sm">
-            Marketing, content, and{' '}
-            <span className="font-display text-2xl italic normal-case text-primary">strategy</span>
-          </p>
-          <p className="mt-4 font-headings text-[10px] uppercase tracking-[0.24em] text-secondary">
-            {personalInfo.location}
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <MagneticLink href={personalInfo.socials.tiktok}>TIKTOK</MagneticLink>
-            <MagneticLink href={personalInfo.socials.instagram}>INSTAGRAM</MagneticLink>
-            <MagneticLink href={personalInfo.socials.linkedin}>LINKEDIN</MagneticLink>
-            <MagneticLink href={`mailto:${personalInfo.email}`}>EMAIL</MagneticLink>
-          </div>
         </motion.div>
       </div>
     </section>

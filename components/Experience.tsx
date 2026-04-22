@@ -7,12 +7,12 @@ export default function Experience() {
   const featuredExperience = experience[0];
 
   return (
-    <section id="experience" className="mx-auto w-full max-w-6xl px-6 py-24">
+    <section id="experience" className="mx-auto w-full max-w-6xl px-6 py-14 md:py-16">
       <SectionLabel number="04" title="EXPERIENCE" />
-      <div className="mt-5">
+      <div className="mt-4">
         {featuredExperience && (
           <FadeIn delayMs={80}>
-            <TiltCard className="border-accent bg-surface p-8 md:p-10">
+            <TiltCard className="w-full border-accent bg-surface p-8 md:p-12">
               {featuredExperience.type === 'current' && (
                 <span className="mb-4 inline-flex rounded-full border border-accent px-3 py-1 font-headings text-[10px] uppercase tracking-[0.2em] text-primary">
                   Current

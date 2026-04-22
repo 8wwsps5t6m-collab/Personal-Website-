@@ -53,7 +53,7 @@ export default function NumberTicker({
 
   return (
     <span ref={elementRef}>
-      {displayValue}
+      {displayValue.toLocaleString()}
       {suffix}
     </span>
   );
